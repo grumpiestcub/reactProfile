@@ -1,22 +1,31 @@
-img {
+.profilePicture {
     width: 100px;
-    border-radius: 50%;
+    border-radius: 40%;
     margin: auto;
     display: block;
-    border: 3px solid green;
 }
 
 .headerContainer {
     border: 5px solid red; 
-    /* background-image: linear-gradient(to bottom right,#73C8A9, #373B44 ); */
+    background-image: linear-gradient(to bottom right,#73C8A9, #373B44 );
 }
 
 .profileName {
-    text-align: center;
+    text-align: left;
     border: 3px solid orange;
 }
 
 .profileAbout {
-    text-align: center;
+    text-align: right;
     border: 4px solid maroon;
+}
+
+/* I thought this was doing someting but I guess not? 
+    .row {
+    display: flex;
+} */
+
+.row {
+    background-image: #1c3d8c;
+    border: 5px solid red;
 }

@@ -6,8 +6,8 @@ function Header() {
     return (
     <> 
     <div className="headerContainer">
-        <div className="profilePicture">
-            <img src={profilePicture} />
+        <div>
+            <img className="profilePicture" src={profilePicture} />
         </div>
         <div className="profileName">
             grumpiestcub
