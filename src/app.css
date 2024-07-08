@@ -17,6 +17,7 @@
 
 .headerContainer {
     background-image: linear-gradient(to bottom right,#f0ccbf, #b96360, #373B44 );
+    /* background-image: '../assets/gradient1.JPG'; [why does this not work?] */
     border-bottom: 2px dashed #000;
 }
 
