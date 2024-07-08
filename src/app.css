@@ -1,31 +1,46 @@
+.App {
+    background-image: linear-gradient(to bottom right,#f0ccbf, #b96360, #4d456f );
+    max-width: 750px;
+    margin: auto;
+    max-height: 1000px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .profilePicture {
     width: 100px;
-    border-radius: 40%;
+    border-radius: 45%;
     margin: auto;
-    display: block;
+    margin-left: 200px;
+    display: flex;
+    padding-top: 10px;
 }
 
 .headerContainer {
-    border: 5px solid red; 
-    background-image: linear-gradient(to bottom right,#73C8A9, #373B44 );
+    background-image: linear-gradient(to bottom right,#f0ccbf, #b96360, #373B44 );
+    border-bottom: 2px dashed #000;
 }
 
 .profileName {
     text-align: left;
-    border: 3px solid orange;
+    padding-left: 10px;
+    color: #181232;
+    font-size: 30px;
 }
 
 .profileAbout {
     text-align: right;
-    border: 4px solid maroon;
+    padding-right: 10px;
+    color: #bf4529;
 }
 
-/* I thought this was doing someting but I guess not? 
-    .row {
+
+/* talk to christian about this to see why it's not working?  
+.musicRow {
     display: flex;
+    justify-content: center;
+    align-items: center;
 } */
 
-.row {
-    background-image: #1c3d8c;
-    border: 5px solid red;
+.bandcampImage, .spotifyImage, .appleImage {
+    padding: 5px;
 }

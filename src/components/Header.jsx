@@ -13,7 +13,9 @@ function Header() {
             grumpiestcub
         </div>
         <div className="profileAbout">
-            just a dude
+            hermit<br/>
+            always afk<br/>
+            just a dude<br/>
         </div>
     </div>
     </>

@@ -1,6 +1,6 @@
 import Header from "./components/Header"
 import Buttons from "./components/Buttons"
-// import '../App.css' why does this not work like in other components? 
+import './App.css'
 
 
 function App() {
