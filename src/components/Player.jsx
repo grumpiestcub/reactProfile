@@ -10,6 +10,16 @@ const [isPlaying, setIsPlaying] = useState(false);
 
 const [play, { pause, duration, sound }] = useSound(tone);
 
+const playingButton = () => {
+  if (isPlaying) {
+    pause();
+    setIsPlaying(false);
+  } else {
+    play();
+    setIsPlaying(true);
+  }
+};
+
 export default function Player() {
 return (
     <div className='musicComponent'>
