@@ -8,6 +8,7 @@ img {
 
 .headerContainer {
     border: 5px solid red; 
+    /* background-image: linear-gradient(to bottom right,#73C8A9, #373B44 ); */
 }
 
 .profileName {
