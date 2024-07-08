@@ -1,4 +1,5 @@
-import profilePicture from "../assets/avatar.jpg"
+import profilePicture from '../assets/avatar.jpg'
+import '../App.css'
 // need to import css and style as I go 
 
 function Header() {
@@ -9,10 +10,10 @@ function Header() {
             <img src={profilePicture} />
         </div>
         <div className="profileName">
-
+            grumpiestcub
         </div>
         <div className="profileAbout">
-
+            just a dude
         </div>
     </div>
     </>

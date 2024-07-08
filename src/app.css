@@ -1,3 +1,21 @@
-/* .profilePicture {
-leaving commented out until I can get this linked tomorrow 
-} */
+img {
+    width: 100px;
+    border-radius: 50%;
+    margin: auto;
+    display: block;
+    border: 3px solid green;
+}
+
+.headerContainer {
+    border: 5px solid red; 
+}
+
+.profileName {
+    text-align: center;
+    border: 3px solid orange;
+}
+
+.profileAbout {
+    text-align: center;
+    border: 4px solid maroon;
+}
