@@ -20,8 +20,11 @@ export default function Player() {
     if (!audioContext) {
       const context = new (window.AudioContext || window.webkitAudioContext)();
       setAudioContext(context);
+      console.log("AudioContext initialized")
     } else if (audioContext.state === 'suspended') {
-      audioContext.resume();
+      audioContext.resume().then(() => {
+        console.log("AudioContext resumed");
+      });
     }
   };
 
