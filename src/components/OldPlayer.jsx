@@ -6,7 +6,7 @@ import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
 import '../App.css'
 
-old version of player to compare
+//old version of player to compare
 const [isPlaying, setIsPlaying] = useState(false);
 
 const [play, { pause }] = useSound(tone);
