@@ -6,7 +6,7 @@ import appleImage from '../assets/apple.png'
 function Buttons() {
     return (
         <>
-        <div classname="musicRow">
+        <div className="musicRow">
                 <a target="_blank" href="https://open.spotify.com/artist/0W7rttZuVqDXlJhEQpNpgb">
                 <img className='spotifyImage' width="40px" src={spotifyImage}/>
                 </a>

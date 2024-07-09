@@ -54,10 +54,13 @@
     padding-bottom: 2em;
     border: 0.1px solid black;
     border-radius: 10px;
+    text-align: center;
 }
 
 .musicCover {
     border-radius: 10%;
+    width: 150px;
+    height: 150px;
   }
 
   .playButton {
@@ -70,6 +73,7 @@
   .subTitle {
     margin-top: -1em;
     color: #4f4f4f;
+    text-align: center;
   }
   
   .time {

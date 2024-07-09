@@ -1,6 +1,6 @@
 import Header from "./components/Header"
 import Buttons from "./components/Buttons"
-// import Player from "./components/Player" 
+import Player from "./components/Player" 
 // commenting this out so the localhost displays
 import './App.css'
 
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Header />
       <Buttons />
-      {/* <Player /> */}
+      <Player />
     </div>
   )
 }
