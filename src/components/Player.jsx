@@ -6,62 +6,6 @@ import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
 import '../App.css'
 
-// old version of player to compare
-// const [isPlaying, setIsPlaying] = useState(false);
-
-// const [play, { pause }] = useSound(tone);
-
-// const playingButton = () => {
-//   if (isPlaying) {
-//     pause();
-//     setIsPlaying(false);
-//   } else {
-//     play();
-//     setIsPlaying(true);
-//   }
-// };
-
-// export default function Player() {
-// return (
-//     <div className='musicComponent'>
-//         <h2>Playing Now</h2>
-//         <img
-//         className='musicCover'
-//         src='https://i.ebayimg.com/images/g/RPEAAOSw9E5kC2rc/s-l1200.webp'
-//         />
-//         <div>
-//             <h3 className='title'>tone</h3>
-//             <p className='subTitle'>grumpiestcub</p>
-//         </div>
-//         <div>
-//           <button className="playButton">
-//             <IconContext.Provider value={{size: "3em", color: "#27ae60"}}>
-//                 <BiSkipPrevious />
-//             </IconContext.Provider>
-//           </button>
-//           { !isPlaying ? (
-//             // is "isPlaying" the problem, is this a hook? 
-//             <button className="playButton" onClick={playingButton}>
-//                 <IconContext.Provider value={{ size: "3em", color: "#27ae60"}}>
-//                     <AiFillPlayCircle />
-//                 </IconContext.Provider>
-//             </button>
-//           ) : (
-//             <button className="playButton" onClick={playingButton}>
-//                 <IconContext.Provider value={{ size: "3em", color: "#27ae60" }}>
-//                     <AiFillPauseCircle />
-//                 </IconContext.Provider>
-//             </button>
-//           )}
-//           <button className="playButton">
-//             <IconContext.Provider value={{ size: "3em", color: "#27ae60 "}}>
-//                 <BiSkipNext />
-//             </IconContext.Provider>
-//           </button>
-//         </div>
-//     </div>
-// )}
-
 // need to figure out how to make back and next buttons work, assuming I would need to add it to the function below
 export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false);

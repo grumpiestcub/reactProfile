@@ -35,15 +35,18 @@
 }
 
 
-/* talk to christian about this to see why it's not working?  
 .musicRow {
     display: flex;
     justify-content: center;
     align-items: center;
-} */
+}
 
 .bandcampImage, .spotifyImage, .appleImage {
     padding: 5px;
+}
+
+.spotifyImage {
+  padding-bottom: 0px;
 }
 
 .musicComponent {
@@ -51,7 +54,7 @@
     width: 25%;
     max-width: 600px;
     margin: 1em auto;
-    padding-bottom: 2em;
+    padding-bottom: 1em;
     border: 0.1px solid black;
     border-radius: 10px;
     text-align: center;
