@@ -9,23 +9,30 @@ import '../App.css'
 
 // need to figure out how to make back and next buttons work, assuming I would need to add it to the function below
 export default function Player() {
-  const [audioContext, setAudioContext] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const [playlist] =useState([
     {title: "tone", url: { tone }},
     {title: "sunday", url: { sunday }},
   ]);
+  const [audioContext, setAudioContext] = useState(null);
 
-  useEffect(() => {
-    const context = new (window.AudioContext || window.webkitAudioContext)();
-    setAudioContext(context);
-  }, []);
-
-  const startAudioContext = () => {
-    if (audioContext && audioContext.state === 'suspended') {
+  const initializeAudioContext = () => {
+    if (!audioContext) {
+      const context = new (window.AudioContext || window.webkitAudioContext)();
+      setAudioContext(context);
+    } else if (audioContext.state === 'suspended') {
       audioContext.resume();
     }
   };
+
+  useEffect(() => {
+    if (audioContext) {
+      return () => {
+        audioContext.close();
+      };
+    }
+  }, [audioContext]);
+
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
   const [play, { pause }] = useSound([currentSongIndex]);
 
@@ -50,7 +57,7 @@ export default function Player() {
   };
 
   const handleClick = () => {
-    startAudioContext();
+    initializeAudioContext();
     playingButton();
   };
 
