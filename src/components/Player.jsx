@@ -6,6 +6,7 @@ import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
 import '../App.css'
 
+// old version of player to compare
 // const [isPlaying, setIsPlaying] = useState(false);
 
 // const [play, { pause }] = useSound(tone);
@@ -61,6 +62,7 @@ import '../App.css'
 //     </div>
 // )}
 
+// need to figure out how to make back and next buttons work, assuming I would need to add it to the function below
 export default function Player() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [play, { pause }] = useSound(tone);
