@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import useSound from "use-sound";
 import tone from '../assets/tone.wav'
+import sunday from '../assets/sunday.wav'
 import { AiFillPlayCircle, AiFillPauseCircle } from "react-icons/ai";
 import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
@@ -8,8 +9,35 @@ import '../App.css'
 
 // need to figure out how to make back and next buttons work, assuming I would need to add it to the function below
 export default function Player() {
+  const [audioContext, setAudioContext] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [play, { pause }] = useSound(tone);
+  const [playlist] =useState([
+    {title: "tone", url: { tone }},
+    {title: "sunday", url: { sunday }},
+  ]);
+
+  useEffect(() => {
+    const context = new (window.AudioContext || window.webkitAudioContext)();
+    setAudioContext(context);
+  }, []);
+
+  const startAudioContext = () => {
+    if (audioContext && audioContext.state === 'suspended') {
+      audioContext.resume();
+    }
+  };
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
+  const [play, { pause }] = useSound([currentSongIndex]);
+
+  const nextSong = () => {
+    setCurrentSongIndex((prevIndex) => (prevIndex + 1) % playlist.length)
+  };
+
+  const prevSong = () => {
+    setCurrentSongIndex((prevIndex) =>
+      prevIndex === 0 ? playlist.length -1 : prevIndex -1
+    );
+  };
 
   const playingButton = () => {
     if (isPlaying) {
@@ -21,6 +49,11 @@ export default function Player() {
     }
   };
 
+  const handleClick = () => {
+    startAudioContext();
+    playingButton();
+  };
+
   return (
     <div className='musicComponent'>
       <h2>Playing Now</h2>
@@ -29,17 +62,17 @@ export default function Player() {
         src='https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjI_NHBRcuWBzWt3bjFlvI69gqGUc-JsUvj55071VuATT9oT1QG_N4Joz6tmfATEDmy2Gv_iKFeyX2n5FMHezfDYYnZhZ1cfPHEbP3Uj_tyPY2n-AiwNq6s5DaLgnoSEgJgcv9W/s1600/Little_Man_Dancing.jpg'
       />
       <div>
-        <h3 className='title'>tone</h3>
+        <h3 className='title'>{playlist[currentSongIndex].title}</h3>
         <p className='subTitle'>grumpiestcub</p>
       </div>
       <div>
         <button className="playButton">
-          <IconContext.Provider value={{ size: "3em", color: "#27ae60" }}>
+          <IconContext.Provider value={{ size: "3em", color: "#27ae60" }} onClick={prevSong}>
             <BiSkipPrevious />
           </IconContext.Provider>
         </button>
         {!isPlaying ? (
-          <button className="playButton" onClick={playingButton}>
+          <button className="playButton" onClick={handleClick}>
             <IconContext.Provider value={{ size: "3em", color: "#27ae60" }}>
               <AiFillPlayCircle />
             </IconContext.Provider>
@@ -51,7 +84,7 @@ export default function Player() {
             </IconContext.Provider>
           </button>
         )}
-        <button className="playButton">
+        <button className="playButton" onClick={nextSong}>
           <IconContext.Provider value={{ size: "3em", color: "#27ae60 " }}>
             <BiSkipNext />
           </IconContext.Provider>
