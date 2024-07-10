@@ -7,6 +7,14 @@ import { BiSkipNext, BiSkipPrevious } from "react-icons/bi";
 import { IconContext } from "react-icons";
 import '../App.css';
 
+{/*
+  need to figure out if the isPlaying state is fighting with useSound or not.
+  If not then why is stop() not working? 
+  Need to read more about useSound documentation, and howler documentation. 
+  Might be best to re-write and find new approach, but need to spend time in the documentation
+  first. 
+  */}
+
 export default function NewPlayer() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
@@ -18,21 +26,19 @@ export default function NewPlayer() {
 
   const [play, {pause, sound }] = useSound(playlist[currentSongIndex].url);
 
-  useEffect(() => 
-  {
-    console.log("useEffectBitch")
-    if (sound) {
-      if (isPlaying) {
-        play();
-      } else {
-        pause();
-      }
-    }
-  }, [currentSongIndex, isPlaying, play, pause, sound]);
+  // useEffect(() => 
+  // {
+  //   console.log("useEffectBitch")
+  //   if (sound) {
+  //     if (isPlaying) {
+  //       play();
+  //     } else {
+  //       pause();
+  //     }
+  //   }
+  // }, [currentSongIndex, isPlaying, play, pause, sound]);
 
   const nextSong = () => {
-    setIsPlaying(false);
-    console.log("isplayingfalse");
     setCurrentSongIndex((prevIndex) => (prevIndex + 1) % playlist.length);
     console.log("currentSongIndexChanged")
   };
@@ -44,8 +50,8 @@ export default function NewPlayer() {
   };
 
   const handlePlayPause = () => {
-    setIsPlaying(!isPlaying);
-    // play();
+    // setIsPlaying(!isPlaying);
+    play();
   };
 
   return (
