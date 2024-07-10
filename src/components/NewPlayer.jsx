@@ -28,7 +28,7 @@ export default function NewPlayer() {
 
   // useEffect(() => 
   // {
-  //   console.log("useEffectBitch")
+  //   console.log("useEffect")
   //   if (sound) {
   //     if (isPlaying) {
   //       play();
