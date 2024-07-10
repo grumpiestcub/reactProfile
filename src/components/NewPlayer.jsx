@@ -16,9 +16,11 @@ export default function NewPlayer() {
     { title: "sunday", url: sunday },
   ];
 
-  const [play, { pause, sound }] = useSound(playlist[currentSongIndex].url);
+  const [play, {pause, sound }] = useSound(playlist[currentSongIndex].url);
 
-  useEffect(() => {
+  useEffect(() => 
+  {
+    console.log("useEffectBitch")
     if (sound) {
       if (isPlaying) {
         play();
@@ -29,12 +31,13 @@ export default function NewPlayer() {
   }, [currentSongIndex, isPlaying, play, pause, sound]);
 
   const nextSong = () => {
-    setIsPlaying(false)
+    setIsPlaying(false);
+    console.log("isplayingfalse");
     setCurrentSongIndex((prevIndex) => (prevIndex + 1) % playlist.length);
+    console.log("currentSongIndexChanged")
   };
 
   const prevSong = () => {
-    setIsPlaying(false)
     setCurrentSongIndex((prevIndex) =>
       prevIndex === 0 ? playlist.length - 1 : prevIndex - 1
     );
@@ -42,6 +45,7 @@ export default function NewPlayer() {
 
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying);
+    // play();
   };
 
   return (
