@@ -1,6 +1,6 @@
 import Header from "./components/Header"
 import Buttons from "./components/Buttons"
-import Player from "./components/Player" 
+import NewPlayer from "./components/NewPlayer" 
 // commenting this out so the localhost displays
 import './App.css'
 
@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <Player />
+      <NewPlayer />
       <Buttons />
     </div>
   )

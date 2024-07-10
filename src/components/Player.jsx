@@ -14,40 +14,50 @@ export default function Player() {
     {title: "tone", url: { tone }},
     {title: "sunday", url: { sunday }},
   ]);
-  const [audioContext, setAudioContext] = useState(null);
+  // const [audioContext, setAudioContext] = useState(null);
 
-  const initializeAudioContext = () => {
-    if (!audioContext) {
-      const context = new (window.AudioContext || window.webkitAudioContext)();
-      setAudioContext(context);
-      console.log("AudioContext initialized")
-    } else if (audioContext.state === 'suspended') {
-      audioContext.resume().then(() => {
-        console.log("AudioContext resumed");
-      });
-    }
-  };
+  // const initializeAudioContext = () => {
+  //   if (!audioContext) {
+  //     try {
+  //     const context = new (window.AudioContext || window.webkitAudioContext)();
+  //     setAudioContext(context);
+  //     console.log("AudioContext initialized");
+  //   } catch (err) {
+  //     console.error("Failed to initialize AudioContext", err);
+  //   }
+  //   } else if (audioContext.state === 'suspended') {
+  //     audioContext.resume().then(() => {
+  //       console.log("AudioContext resumed");
+  //     });
+  //   }
+  // };
 
-  useEffect(() => {
-    if (audioContext) {
-      return () => {
-        audioContext.close();
-      };
-    }
-  }, [audioContext]);
+  // useEffect(() => {
+  //   if (audioContext) {
+  //     return () => {
+  //       audioContext.close();
+  //     };
+  //   }
+  // }, [audioContext]);
 
   const [currentSongIndex, setCurrentSongIndex] = useState(0);
-  const [play, { pause }] = useSound([currentSongIndex]);
+  const [play, { pause }] = useSound([currentSongIndex].url, {
+    onplayerror: (err) => {
+      console.error("failed to play sound", err);
+      if (err.name === "NotAllowedError" || err.name === "NotSupportedError") {
+        initializeAudioContext();
+      }
+    }
+  });
 
   const nextSong = () => {
     setCurrentSongIndex((prevIndex) => (prevIndex + 1) % playlist.length)
   };
 
-  const prevSong = () => {
-    setCurrentSongIndex((prevIndex) =>
-      prevIndex === 0 ? playlist.length -1 : prevIndex -1
+  function prevSong() {
+    setCurrentSongIndex((prevIndex) => prevIndex === 0 ? playlist.length - 1 : prevIndex - 1
     );
-  };
+  }
 
   const playingButton = () => {
     if (isPlaying) {
